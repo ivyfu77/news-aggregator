@@ -279,7 +279,7 @@ APP.Main = (function() {
     var loadThreshold = (main.scrollHeight - main.offsetHeight -
         LAZY_LOAD_THRESHOLD);
     if (main.scrollTop > loadThreshold)
-      loadStoryBatch();
+      requestAnimationFrame(loadStoryBatch);
   });
 
   function loadStoryBatch() {
@@ -311,7 +311,7 @@ APP.Main = (function() {
     }
 
     storyStart += count;
-
+    requestAnimationFrame(loadStoryBatch);
   }
 
   // Bootstrap in the stories.
